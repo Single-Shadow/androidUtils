@@ -42,7 +42,7 @@ publish {
     userOrg = 'zhanpple'
     groupId = 'com.zmp.zhanpple'
     artifactId = 'utils'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'Super duper easy way to release your Android and other artifacts to bintray'
     website = "https://github.com/zhanpple/androidUtils"
 
