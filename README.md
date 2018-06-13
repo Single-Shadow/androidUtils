@@ -9,7 +9,6 @@ README
 ### 用法
 <h4>
 ```java
-	
 	Logger.i("onCreate"); 
 	// 控制台- >  I/Logger: com.zmp.androidutils.MainActivity->>onCreate->>14:onCreate
 	Logger.v("onCreate");
@@ -22,4 +21,3 @@ README
 	// 控制台- >  W/Logger: com.zmp.androidutils.MainActivity->>onCreate->>18:onCreate
 	
 ```
-</h4>
