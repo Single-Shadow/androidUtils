@@ -41,9 +41,9 @@ README
 	//添加收件人
 	SendEmailUtils.getInstance().addToUser(toUsername1);
 	SendEmailUtils.getInstance().addToUser(toUsername2);
-	、、、、、、
-	、、、、、、
-	SendEmailUtils.getInstance().addToUser(toUsernamen);
+	......
+	......
+	SendEmailUtils.getInstance().addToUser(toUsername);
 
 	//发送邮件
 	SendEmailUtils.getInstance().sendEmail(title,content);
@@ -51,3 +51,6 @@ README
 	SendEmailUtils.getInstance().sendEmail(title,content,filePath,emailFileName);
 		
 ```
+
+## OkHttp工具类 [SendEmailUtils源码](https://github.com/zhanpple/androidUtils/blob/master/utils/src/main/java/com/zmp/utils/SendEmailUtils.java)
+### 用法

@@ -2,12 +2,9 @@ package com.zmp.utils.okhttp;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.zmp.utils.Logger;
 
 import java.io.File;
 import java.io.IOException;

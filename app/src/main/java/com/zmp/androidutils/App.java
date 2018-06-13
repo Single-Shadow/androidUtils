@@ -13,7 +13,7 @@ public class App extends Application {
                 super.onCreate();
                 ToastTools.getDefault().init(getApplicationContext());
                 String username = "xxx.xxx@xx.xx";
-                String password = "xxxxxxxxxxx";
+                String password = "x";
                 SendEmailUtils.getInstance().init(username, password, new SendEmailUtils.ISendResult() {
                         @Override
                         public void onSuccess() {
@@ -26,5 +26,11 @@ public class App extends Application {
                         }
                 });
                 SendEmailUtils.getInstance().addToUser(username);
+                String title = "title";
+                String content = "content";
+                String filePath = "fileName";
+                String emailFileName = "emailFileName";
+                SendEmailUtils.getInstance().sendEmail(title, content);
+                SendEmailUtils.getInstance().sendEmail(title, content, filePath, emailFileName);
         }
 }
