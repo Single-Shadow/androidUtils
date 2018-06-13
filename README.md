@@ -171,13 +171,13 @@ ANDROID_UTILS
 
 ```
 ### 使用库
-	```java
+```java
 	
 		api 'com.squareup.okhttp3:okhttp:3.9.1'
 		implementation 'com.sun.mail:android-mail:1.6.0'
 		implementation 'com.alibaba:fastjson:1.2.47'
 		
-	```
+```
 	
 
 ## 有任何疑问或建议可随时联系邮箱: zhanpples@qq.com
