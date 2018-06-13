@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.File;
@@ -123,6 +124,11 @@ public class OkHttpUtils {
                                                 e.printStackTrace();
                                                 if (myCallBack != null) {
                                                         myCallBack.onFailure(e.getMessage());
+                                                }
+                                        }catch (JSONException jsonException){
+                                                jsonException.printStackTrace();
+                                                if (myCallBack != null) {
+                                                        myCallBack.onFailure(jsonException.getMessage());
                                                 }
                                         }
                                 }
