@@ -1,4 +1,4 @@
-README
+ANDROID_UTILS
 ======
 
 # 使用 
@@ -131,7 +131,53 @@ README
 					ToastTools.getDefault().show("onFailure:" + s);
 			}
 	});
+	
+	//扩展 
+	 ProgressDownloader progressDownloader = new ProgressDownloader(url3, file, new IProgressCallback() {
+                        @Override
+                        public void onLoading(float current, float total) {
+                                float percent;
+                                if (total == 0) {
+                                        percent = 100;
+                                }
+                                else {
+                                        percent = current * 100.0F / total;
+                                }
+                                Log.e("TAG", "current:" + current);
+                                Log.e("TAG", "total:" + total);
+                                String format = String.format("下载进度%1$.2f%2$s".toLowerCase(), percent, "%");
+                        }
+
+                        @Override
+                        public void onSuccess() {
+
+                        }
+
+                        @Override
+                        public void onFailed(String message) {
+
+                        }
+
+                        @Override
+                        public void onSave(long startsPoint, int len) {
+                                Log.e("MapTaskActivity", "onSave" + (startsPoint + len));
+                        }
+                });
+				//下载
+				long startsPoint = 0;
+                progressDownloader.download(startsPoint);
+				//暂停
+                progressDownloader.pause();
 
 ```
+### 使用库
+	```java
+	
+		api 'com.squareup.okhttp3:okhttp:3.9.1'
+		implementation 'com.sun.mail:android-mail:1.6.0'
+		implementation 'com.alibaba:fastjson:1.2.47'
+		
+	```
+	
 
-## 有任何疑问可随时联系邮箱: zhanpples@qq.com
+## 有任何疑问或建议可随时联系邮箱: zhanpples@qq.com
