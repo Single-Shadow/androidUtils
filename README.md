@@ -24,30 +24,30 @@ README
 ### 用法
 ```java
 
-		String username = "xxx.xxx@xx.xx";
-		String password = "xxxxxxxxxxx";
-		//初始化用户名密码(使用账户需开通SMTP服务)
-		SendEmailUtils.getInstance().init(username, password, new SendEmailUtils.ISendResult() {
-				@Override
-				public void onSuccess() {
-						Logger.d("ISendResult:onSuccess");
-				}
+	String username = "xxx.xxx@xx.xx";
+	String password = "xxxxxxxxxxx";
+	//初始化用户名密码(使用账户需开通SMTP服务)
+	SendEmailUtils.getInstance().init(username, password, new SendEmailUtils.ISendResult() {
+			@Override
+			public void onSuccess() {
+					Logger.d("ISendResult:onSuccess");
+			}
 
-				@Override
-				public void onFail(String ex) {
-						Logger.d("ISendResult:onFail:" + ex);
-				}
-		});
-		//添加收件人
-		SendEmailUtils.getInstance().addToUser(toUsername1);
-		SendEmailUtils.getInstance().addToUser(toUsername2);
-		、、、、、、
-		、、、、、、
-		SendEmailUtils.getInstance().addToUser(toUsernamen);
-		
-		//发送邮件
-		SendEmailUtils.getInstance().sendEmail(title,content);
-		//发送带附件的邮件
-        SendEmailUtils.getInstance().sendEmail(title,content,filePath,emailFileName);
+			@Override
+			public void onFail(String ex) {
+					Logger.d("ISendResult:onFail:" + ex);
+			}
+	});
+	//添加收件人
+	SendEmailUtils.getInstance().addToUser(toUsername1);
+	SendEmailUtils.getInstance().addToUser(toUsername2);
+	、、、、、、
+	、、、、、、
+	SendEmailUtils.getInstance().addToUser(toUsernamen);
+
+	//发送邮件
+	SendEmailUtils.getInstance().sendEmail(title,content);
+	//发送带附件的邮件
+	SendEmailUtils.getInstance().sendEmail(title,content,filePath,emailFileName);
 		
 ```
