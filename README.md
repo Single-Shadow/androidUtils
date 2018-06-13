@@ -1,4 +1,4 @@
-<h1 style="text-align:center;">README</h1>
+<h1 style="text-align:center;color:red;">README</h1>
 
 # 使用 
 * <H3>compile 'com.zmp.zhanpple:utils:1.0.1'</H3>
