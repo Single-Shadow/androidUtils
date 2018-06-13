@@ -33,6 +33,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     implementation 'com.sun.mail:android-mail:1.6.0'
+    implementation 'com.alibaba:fastjson:1.2.47'
 
 }
 

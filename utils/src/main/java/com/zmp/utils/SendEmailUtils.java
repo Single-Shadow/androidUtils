@@ -5,6 +5,7 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -114,7 +115,13 @@ public class SendEmailUtils {
                                 catch (Exception e) {
                                         e.printStackTrace();
                                         if (resultListener != null) {
-                                                resultListener.onFail(e.getMessage());
+                                                try {
+                                                        resultListener.onFail(new String(e.getMessage().getBytes("ISO_8859-1"), "GBK"));
+                                                }
+                                                catch (UnsupportedEncodingException e1) {
+                                                        e1.printStackTrace();
+                                                        resultListener.onFail(e.getMessage());
+                                                }
                                         }
                                         return;
                                 }
@@ -157,7 +164,13 @@ public class SendEmailUtils {
                                 catch (Exception e) {
                                         e.printStackTrace();
                                         if (resultListener != null) {
-                                                resultListener.onFail(e.getMessage());
+                                                try {
+                                                        resultListener.onFail(new String(e.getMessage().getBytes("ISO_8859-1"), "GBK"));
+                                                }
+                                                catch (UnsupportedEncodingException e1) {
+                                                        e1.printStackTrace();
+                                                        resultListener.onFail(e.getMessage());
+                                                }
                                         }
                                         return;
                                 }

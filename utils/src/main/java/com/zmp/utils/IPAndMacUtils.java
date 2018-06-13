@@ -1,6 +1,9 @@
 package com.zmp.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.util.Log;
 
 import java.net.Inet4Address;
@@ -11,23 +14,22 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/10/19.
+ * Created by zmp on 2017/10/19.
  */
 
 public class IPAndMacUtils {
 
-        //        // 获取本机的MAC地址
-//        public String getLocalMacAddress(Context context) {
-//                if (com.uurobot.common.utils.NetworkUtils.checkNetworkConnection(context)) {
-//                        WifiManager wifi = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-//                        WifiInfo info = wifi.getConnectionInfo();
-//                        String macAddress = info.getMacAddress();
-//                        String mac = macAddress.replace(":", "");
-//                        return mac;
-//                }
-//                return null;
-//
-//        }
+        // 获取本机的MAC地址
+        @SuppressLint("MissingPermission")
+        public String getLocalMacAddress(Context context) {
+                WifiManager wifi = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+                WifiInfo info = wifi.getConnectionInfo();
+                String macAddress = info.getMacAddress();
+                String mac = macAddress.replace(":", "");
+                return mac;
+
+        }
+
         // 获取本机的MAC地址
         public static String getLocalMacAddressFromIp(Context context) {
                 String mac_s = "";
@@ -45,14 +47,14 @@ public class IPAndMacUtils {
 
         public static String byte2hex(byte[] b) {
                 StringBuffer hs = new StringBuffer(b.length);
-                String stmp = "";
+                String temp = "";
                 int len = b.length;
                 for (int n = 0; n < len; n++) {
-                        stmp = Integer.toHexString(b[n] & 0xFF);
-                        if (stmp.length() == 1)
-                                hs = hs.append("0").append(stmp);
+                        temp = Integer.toHexString(b[n] & 0xFF);
+                        if (temp.length() == 1)
+                                hs = hs.append("0").append(temp);
                         else {
-                                hs = hs.append(stmp);
+                                hs = hs.append(temp);
                         }
                 }
                 return String.valueOf(hs);
@@ -60,13 +62,13 @@ public class IPAndMacUtils {
 
         public static String getLocalIpAddress() {
                 try {
-                        List<NetworkInterface> nilist = Collections.list(NetworkInterface.getNetworkInterfaces());
-                        for (NetworkInterface ni : nilist) {
-                                List<InetAddress> ialist = Collections.list(ni.getInetAddresses());
-                                for (InetAddress address : ialist) {
+                        List<NetworkInterface> niList = Collections.list(NetworkInterface.getNetworkInterfaces());
+                        for (NetworkInterface ni : niList) {
+                                List<InetAddress> iaList = Collections.list(ni.getInetAddresses());
+                                for (InetAddress address : iaList) {
                                         if (!address.isLoopbackAddress() && address instanceof Inet4Address) {
                                                 String hostAddress = address.getHostAddress();
-                                                Log.e("ipv4", hostAddress);
+                                                Log.d("ipv4", hostAddress);
                                                 if (!"192.168.12.1".equals(hostAddress)) {
                                                         return hostAddress;
                                                 }
